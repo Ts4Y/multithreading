@@ -14,7 +14,7 @@ func TestGenerateRandomElements(t *testing.T) {
 	size := 1000
 	assert.Len(t, generateRandomElements(size), size)
 	assert.Len(t, generateRandomElements(size), size)
-	assert.Len(t, generateRandomElements(0), 0)
+	require.Len(t, generateRandomElements(0), 0)
 	assert.Len(t, generateRandomElements(-10), 0)
 	size = 1_000_000
 	assert.Len(t, generateRandomElements(size), size)
