@@ -56,6 +56,9 @@ func maxChunks(data []int) int {
 	for i := 0; i < CHUNKS; i++ {
 		start := i * chunkSize
 		end := start + chunkSize
+		if start >= len(data) {
+			break 
+		}
 		if end > len(data) {
 			end = len(data)
 		}
@@ -65,16 +68,6 @@ func maxChunks(data []int) int {
 		wg.Add(1)
 		go func(idx int, part []int) {
 			defer wg.Done()
-			if len(part) == 0 {
-				results[idx] = maximum(part)
-				return
-			}
-			localMax := data[start]
-			for _, v := range data[start:end] {
-				if v > localMax {
-					localMax = v
-				}
-			}
 			results[idx] = maximum(part)
 		}(i, chunk)
 	}
