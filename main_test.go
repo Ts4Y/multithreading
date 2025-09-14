@@ -59,4 +59,6 @@ func TestMaxChunks(t *testing.T) {
 
 	max = maxChunks(largeArr)
 	assert.Equal(t, 999999, max)
+
+	//
 }
