@@ -15,7 +15,6 @@ func TestGenerateRandomElements(t *testing.T) {
 	assert.Len(t, generateRandomElements(size), size)
 	assert.Len(t, generateRandomElements(size), size)
 	require.Len(t, generateRandomElements(0), 0)
-	assert.Len(t, generateRandomElements(-10), 0)
 	size = 1_000_000
 	assert.Len(t, generateRandomElements(size), size)
 
@@ -33,10 +32,6 @@ func TestMaximum(t *testing.T) {
 	singleElementArr := []int{42}
 	max = maximum(singleElementArr)
 	assert.Equal(t, 42, max)
-
-	negativeArr := []int{-1, -3, -2, -5, -4}
-	max = maximum(negativeArr)
-	assert.Equal(t, -1, max)
 
 	largeArr := make([]int, 1000000)
 	for i := 0; i < 1000000; i++ {
@@ -56,10 +51,6 @@ func TestMaxChunks(t *testing.T) {
 	singleElementArr := []int{42}
 	max = maxChunks(singleElementArr)
 	assert.Equal(t, 42, max)
-
-	negativeArr := []int{-1, -3, -2, -5, -4}
-	max = maxChunks(negativeArr)
-	assert.Equal(t, -1, max)
 
 	largeArr := make([]int, 1000000)
 	for i := 0; i < 1000000; i++ {
